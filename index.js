@@ -14,6 +14,8 @@ app.set("view engine", "ejs");
 
 app.use(express.json());
 
+app.use(express.static(__dirname + "/public"))
+
 const countrySchema = new mongoose.Schema({
   country: { type: String },
   flagURL: { type: String },
@@ -42,7 +44,7 @@ res.json(newCountry)
 // Create a GET route for "/" that renders countries.ejs with every country from the Countries collection (1 point)
 
 app.get("/", async (req, res) => {
-  // I need to find out how to do this-
+  // I'll do this soon
 })
 
 // Go to countries.ejs and follow the tasks there (2 points)
@@ -60,7 +62,7 @@ app.get("/", async (req, res) => {
 async function startServer() {
   
     // add your SRV string with a database called countries
-  await mongoose.connect("...");
+  await mongoose.connect("");
 
   app.listen(3000, () => {
     console.log("Server is running");
